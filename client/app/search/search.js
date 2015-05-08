@@ -8,6 +8,7 @@ angular.module('socialStock.search', [])
       $scope.searchTerm = '';
     });
   };
+  
   $scope.buyStock = function(shares){
     var date = new Date();
     var purchase = {
@@ -19,7 +20,7 @@ angular.module('socialStock.search', [])
       "shares": +shares
     };
     clientFactory.buyStock(purchase).then(function(data){
+      $location.path('/dashboard');
     });
-    $scope.shares = '';
   }
 });
