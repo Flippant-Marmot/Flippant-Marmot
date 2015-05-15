@@ -33,6 +33,14 @@ body {
     color: #8F7F70;
 }
 
+/* search */
+#searchpage {
+    padding: 20px;
+}
+#search {
+  width: 50em;
+}
+
 
 
 /*-- BS3 Modified Classes --*/
