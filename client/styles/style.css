@@ -4,7 +4,6 @@
 .line-legend{
   display: none;
 }
-
 /*
 ============ Chart Widget Directive http://bootsnipp.com/snippets/featured/awesome-ui-kit
 */
@@ -36,6 +35,7 @@ body {
 /* search */
 #searchpage {
     padding: 20px;
+    margin-top: 15px;
 }
 #search {
   width: 50em;
@@ -53,6 +53,7 @@ body {
   padding-right: 0 10px;
   width: 75%;
 }
+
 
 
 

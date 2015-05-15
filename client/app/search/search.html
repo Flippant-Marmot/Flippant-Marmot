@@ -1,9 +1,7 @@
 
-
-
 <div class='container' id='searchpage'>
   <div class='row' id='search'>
-    <div class='col-xs-6 col-xs-offset-3'>
+    <div class='col-md-6 col-md-offset-3'>
         <form ng-submit='search(searchTerm)'>
           <!-- <button ng-click='search(searchTerm)'>search</button> -->
           <div class="form-group">
@@ -18,19 +16,20 @@
   <div class ="row">
     <div class="row stats_overview">
       <div id="line-chart-widget" class="panel">
+
         <div class="panel-body">
-          <div class="media col-md-6 col-md-offset-3">
+          <div class="media col-xs-6 col-xs-offset-3 col-md-8 col-md-offset-2">
             <div class="list-block">
               <ul class="text-center legend" ng-repeat='stock in stocks'>
                 <li>
                  <h3>{{ stock.name }}</h3>
                  STOCK
                </li>
-               <li>
+              <!--  <li>
                  <h3>{{stock.follower_count_at_query_time | number}}</h3>
                  RETWEETS
                </li>
-               <li>
+ -->               <li>
                  <h3 id="shareprice">{{stock.price_at_purchase | number:2}}</h3>
                  SHARE PRICE
                </li>
