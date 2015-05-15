@@ -45,6 +45,15 @@ body {
   padding: 0 20px;
 }
 
+#buyshares {
+  width:150px;
+  padding-right: 150px;
+}
+#buyshares input {
+  padding-right: 0 10px;
+  width: 75%;
+}
+
 
 
 
