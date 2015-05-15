@@ -43,15 +43,20 @@
         <div class="panel-body">
           <div class="media col-md-4 col-md-offset-4">
             <div class="list-block">
-              <ul class="text-center legend">
+              <ul class="text-center legend" ng-repeat='stock in stocks'>
                 <li>
-                 <h3>{{ networth | number:2 }}</h3>
-                 NET WORTH
+                 <h3>{{ stock.name }}</h3>
+                 STOCK
                </li>
                <li>
-                 <h3>{{portfolio.cash_balance | number:2}}</h3>
-                 CASH BALANCE
+                 <h3>{{stock.follower_count_at_query_time | number}}</h3>
+                 FOLLOWERS
                </li>
+               <li >
+                 <h3 id="shareprice">{{stock.price_at_purchase | number:2}}</h3>
+                 SHARE PRICE
+               </li>
+             
               </ul>
             </div>
           </div>
@@ -74,7 +79,7 @@
         <div class=''>BUY</div>
       </div>
       <div id='stocks'>
-        <div class='' ng-repeat='stock in stocks'>
+        <div ng-repeat='stock in stocks'>
           <div class=''>
             <div>{{ stock.name }}</div>
             <div class=''>@{{ stock.screen_name }}</div>
