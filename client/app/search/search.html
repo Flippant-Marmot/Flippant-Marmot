@@ -1,32 +1,55 @@
-<div id='info'>
-  <div class='networth'>NET WORTH <span class='rightfloat'>{{ networth | number:2 }}</span></div>
-  <div id='cash'>CASH BALANCE <span class='rightfloat' ng-class="{ red: portfolio.cash_balance < 0 }">{{portfolio.cash_balance | number:2}}</span></div>
-</div>
-<div id='search'>
-  <form ng-submit='search(searchTerm)'>
-    <!-- <button ng-click='search(searchTerm)'>search</button> -->
-    <input type='text' ng-model='searchTerm' placeholder='Input Twitter Handle'>
-  </form>
-</div>
-<div id='searchheaders'>
-  <div class='center twentyfivepercent'>STOCK</div>
-  <div class='center twentyfivepercent'>FOLLOWERS</div>
-  <div class='center twentyfivepercent'>SHARE PRICE</div>
-  <div class='center twentyfivepercent'>BUY</div>
-</div>
-<div id='stocks'>
-  <div class='stock parent search' ng-repeat='stock in stocks'>
-    <div class='gray twentyfivepercent center'>
-      <div>{{ stock.name }}</div>
-      <div class='handle'>@{{ stock.screen_name }}</div>
+
+<div class='container' id='searchpage'>
+  <div class='row' id='search'>
+    <div class='col-md-6 col-md-offset-3'>
+        <form ng-submit='search(searchTerm)'>
+          <!-- <button ng-click='search(searchTerm)'>search</button> -->
+          <div class="form-group">
+              <input type='text' class="form-control" id='search' ng-model='searchTerm' placeholder='Twitter Search Query'>
+          </div>
+          
+        </form>
+      </div>
     </div>
-    <div class='gray twentyfivepercent center'>{{ stock.follower_count_at_query_time | number}}</div>
-    <div class='gray twentyfivepercent center'>{{ stock.price_at_purchase | number:2}}</div>
-    <div class='gray twentyfivepercent buy center'>
-      <form ng-submit='buyStock(shareCount)'>
-        <!-- <button ng-click='buyStock(shareCount)'>BUY</button> -->
-        <input type='text' ng-model='shareCount' placeholder='shares'>
-      </form>
+  </div>
+
+  <div class ="row">
+    <div class="row stats_overview">
+      <div id="line-chart-widget" class="panel">
+
+        <div class="panel-body">
+          <div class="media col-xs-6 col-xs-offset-3 col-md-8 col-md-offset-2">
+            <div class="list-block">
+              <ul class="text-center legend" ng-repeat='stock in stocks'>
+                <li>
+                 <h3>{{ stock.name }}</h3>
+                 STOCK
+               </li>
+              <!--  <li>
+                 <h3>{{stock.follower_count_at_query_time | number}}</h3>
+                 RETWEETS
+               </li>
+ -->               <li>
+                 <h3 id="shareprice">{{stock.price_at_purchase | number:2}}</h3>
+                 SHARE PRICE
+               </li>
+                <li id="buyshares">
+                  <form ng-submit='buyStock(shareCount)'>
+                    <!-- <div class="form-group" > -->
+                        <input type='text' ng-model='shareCount' >
+                    <!-- </div> -->
+                    BUY SHARES
+                    <!-- <button ng-click='buyStock(shareCount)'>BUY</button> -->
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <br/>
+      </div>
     </div>
   </div>
 </div>
+
+          

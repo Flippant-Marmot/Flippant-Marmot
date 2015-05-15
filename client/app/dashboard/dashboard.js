@@ -4,6 +4,14 @@ angular.module('socialStock.dash', [])
   console.log("inside DashController!")
 
 
+    $scope.line = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      data: [
+        [65, 59, 80, 81, 56, 55, 40] ]
+    }
+
+
+
   $scope.portfolio;
   $scope.networth;
 
@@ -90,7 +98,7 @@ angular.module('socialStock.dash', [])
    *  @param {Number} cp - current price of stock to sell
    *  @param {Number} s - number of stocks to sell
    */
-  $scope.createAndSell = function(sn, name, cfc, cd, cp, s) {
+  $scope.createAndSell = function(sn, name, cfc, cd, cp, s, sentiment) {
 
     var stockToSell = {
       "screen_name": sn,
@@ -98,7 +106,8 @@ angular.module('socialStock.dash', [])
       "current_follower_count": cfc,
       "current_date": cd,
       "current_price": cp,
-      "shares": s
+      "shares": s,
+      "sentiment" : sentiment, 
     }
 
     clientFactory.sellStock(stockToSell).then(function(data) {
@@ -113,4 +122,31 @@ angular.module('socialStock.dash', [])
 
   $scope.refresh();
 
-});
+}).directive('chartwidegt',function(){
+  console.log("**********************");
+ 
+    return {
+          templateUrl:'app/directives/chartWidget.html',
+          restrict: 'E',
+          replace: true,
+          scope: {
+            'model': '=',
+            'dataObj': '@',
+          }
+      }
+  }) .controller('chartController', function($scope, $http, clientFactory) {
+        console.log("inside DashController!");
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
